@@ -1,0 +1,96 @@
+.module-copy {
+    padding: 15vh 10vw 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: calc(1440px + 20vw)
+}
+
+.module-copy,
+.module-copy .summary {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.module-copy .summary {
+    width: calc(100% - 170px)
+}
+
+.module-copy .col-1,
+.module-copy .col-2 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    padding-right: 30px;
+    font-size: 18px;
+    line-height: 1.4em
+}
+
+.module-copy .col-1 p,
+.module-copy .col-2 p {
+    margin-bottom: 0
+}
+
+.module-copy .col-1 p:not(:first-of-type),
+.module-copy .col-2 p:not(:first-of-type) {
+    margin-top: 1.6em
+}
+
+.module-copy .col-1 a,
+.module-copy .col-2 a {
+    color: #000
+}
+
+.module-copy .col-1 strong {
+    font-size: 30px;
+    line-height: 1.04em
+}
+
+@media screen and (max-width:1024px) {
+    .module-copy {
+        padding-top: 10vh
+    }
+
+    .module-copy .col-1,
+    .module-copy .col-2 {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%
+    }
+
+    .module-copy .col-2 {
+        margin-top: 1em
+    }
+}
+
+@media screen and (max-width:1023px) {
+    .module-copy .summary {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+}
+
+@media screen and (max-width:767px) {
+    .module-copy {
+        padding-left: 30px;
+        padding-right: 30px
+    }
+
+    .module-copy .summary {
+        margin-top: 0;
+        width: 100%
+    }
+
+    .module-copy .col-1,
+    .module-copy .col-2 {
+        font-size: 18px;
+        line-height: 1.4em
+    }
+
+    .module-copy .col-1 strong {
+        font-size: 20px
+    }
+
+    .module-copy .col-2 {
+        margin-top: 5vw
+    }
+}

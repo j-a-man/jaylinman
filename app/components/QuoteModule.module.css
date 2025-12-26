@@ -1,0 +1,100 @@
+.module-quote {
+    position: relative;
+    z-index: -1;
+    padding: 15vh 10vw 5vh;
+    max-width: calc(1440px + 20vw);
+    margin-left: auto;
+    margin-right: auto
+}
+
+.module-quote blockquote {
+    position: relative;
+    margin: 0;
+    width: calc(80% - 200px);
+    font-family: Druk Wide Web;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    font-size: 3.2vw;
+    letter-spacing: .03em;
+    line-height: 1.2em
+}
+
+.module-quote blockquote .quote-left {
+    position: absolute;
+    top: 6px;
+    left: -63px;
+    font-size: 6.2vw
+}
+
+.module-quote .attribution {
+    display: block;
+    margin-top: 4em;
+    width: 100%;
+    font-family: akzidenz-grotesk, sans-serif;
+    font-size: 16px;
+    font-weight: 500
+}
+
+@media screen and (min-width:1025px) {
+    .module-quote blockquote {
+        font-size: 30px;
+        line-height: 1.3em
+    }
+
+    .module-quote blockquote .quote-left {
+        top: 8px;
+        font-size: 72px
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .module-quote blockquote {
+        width: calc(100% - 200px)
+    }
+
+    .module-quote blockquote .quote-left {
+        left: -5vw
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .module-quote {
+        padding-top: 10vw
+    }
+
+    .module-quote blockquote {
+        width: 100%;
+        font-size: 26px;
+        line-height: 1.3em
+    }
+
+    .module-quote blockquote .quote-left {
+        top: 8px;
+        font-size: 60px
+    }
+}
+
+@media screen and (max-width:767px) {
+    .module-quote {
+        padding: 15vw 30px 20vw 60px
+    }
+
+    .module-quote blockquote {
+        font-size: 18px
+    }
+
+    .module-quote blockquote .quote-left {
+        top: 2px;
+        left: -7vw;
+        font-size: 40px
+    }
+
+    .module-quote .attribution {
+        margin-top: 2em
+    }
+
+    :global(body.journal-post-page) .module-quote {
+        padding-left: 30px;
+    }
+}

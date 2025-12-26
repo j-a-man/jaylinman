@@ -1,0 +1,170 @@
+/* Profile Sidebar Absolute Layout */
+.profileSection {
+    position: fixed;
+    right: 15vw;
+    top: 20vh;
+    width: 280px;
+    z-index: 1000;
+    opacity: 0;
+    animation: profileFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+    pointer-events: none !important;
+}
+
+/* Ensure ALL children are transparent to clicks/scrolls by default */
+.profileSection * {
+    pointer-events: none !important;
+}
+
+/* Re-enable interaction ONLY for actual links */
+.profileSection a {
+    pointer-events: auto !important;
+    cursor: pointer;
+}
+
+@keyframes profileFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Profile Picture */
+.profilePicWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.profilePicPlaceholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+:global(body.night-mode) .profilePicPlaceholder {
+    background: linear-gradient(135deg, #333 0%, #444 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Quicklinks Grid */
+.quicklinksContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 35px;
+    pointer-events: auto !important;
+    /* Force interactive */
+}
+
+.quicklinkCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90px;
+    padding: 15px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    pointer-events: auto !important;
+    cursor: pointer;
+}
+
+:global(body.night-mode) .quicklinkCard {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.quicklinkCard:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+:global(body.night-mode) .quicklinkCard:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.linkText {
+    font-family: var(--font-manrope), sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #151515;
+}
+
+.linkArrow {
+    align-self: flex-end;
+    font-size: 18px;
+    color: #151515;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+:global(body.night-mode) .linkText,
+:global(body.night-mode) .linkArrow {
+    color: #fff;
+}
+
+.quicklinkCard:hover .linkArrow {
+    opacity: 1;
+}
+
+/* Intro Text */
+.introText {
+    text-align: left;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hi {
+    display: block;
+    font-family: var(--font-manrope), sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    color: #151515;
+    margin: 0 0 5px 0;
+    line-height: 1.1;
+}
+
+.welcome {
+    display: block;
+    font-family: var(--font-manrope), sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #151515;
+    opacity: 0.6;
+    margin: 0;
+}
+
+:global(body.night-mode) .hi,
+:global(body.night-mode) .welcome {
+    color: #fff;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .profileSection {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin: 50px auto;
+        width: 90%;
+        max-width: 320px;
+    }
+}
