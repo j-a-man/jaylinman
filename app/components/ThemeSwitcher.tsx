@@ -48,7 +48,7 @@ export default function ThemeSwitcher() {
                     justifyContent: 'center',
                     padding: 0,
                     transform: 'translateY(120%)',
-                    animation: 'h 1s forwards 2.2s',
+                    animation: 'h 1s forwards 0.8s',
                     transition: 'background 0.3s ease, color 0.3s ease, border-color 0.3s ease',
                     background: isHovered
                         ? (isDarkMode ? '#fff' : '#000')

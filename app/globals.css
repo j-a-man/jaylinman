@@ -868,7 +868,7 @@ body.night-mode.home-page .projects li.isSelected a {
     color: #f2f2f2 !important;
     -webkit-text-stroke: 0 !important;
     -webkit-text-fill-color: #f2f2f2 !important;
-    text-stroke: 0 !important;
+    text-shadow: 0 !important;
     opacity: 1 !important;
 }
 
@@ -881,7 +881,7 @@ body.ultra-mode.home-page:not(.ultra-mode):not(.outro) .projects li.isSelected a
     color: #f2f2f2 !important;
     -webkit-text-stroke: 0 !important;
     -webkit-text-fill-color: #f2f2f2 !important;
-    text-stroke: 0 !important;
+    text-shadow: 0 !important;
     opacity: 1 !important;
 }
 
@@ -3378,7 +3378,7 @@ body.night-mode .home-page .projects a .slideUp>span {
     @supports (-webkit-text-stroke:2px #000) {
         .home-page .projects a {
             -webkit-text-stroke-width: 2px;
-            text-stroke-width: 2px
+            stroke-miterlimit: 2px
         }
     }
 
@@ -3404,7 +3404,7 @@ body.night-mode .home-page .projects a .slideUp>span {
     @supports (-webkit-text-stroke:1px #000) {
         .home-page .projects a {
             -webkit-text-stroke-width: 1px;
-            text-stroke-width: 1px
+            stroke-miterlimit: 1px
         }
     }
 
@@ -4668,4 +4668,55 @@ body.night-mode .intro-text .welcome {
         width: 90%;
         max-width: 320px;
     }
+}
+
+/* --- SCROLL REVEAL ANIMATIONS --- */
+
+/* 1. Project List Exit */
+.projects {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+body.reveal-about .projects {
+    opacity: 0;
+    transform: translateY(-50px);
+    pointer-events: none;
+}
+
+/* 2. Sidebar Shift */
+/* 2. Sidebar Shift */
+.profile-section {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    z-index: 100 !important;
+}
+
+body.reveal-about .profile-section {
+    /* Move to the Left Side. */
+    transform: translateX(-40vw);
+}
+
+/* 3. About Section Reveal */
+body.reveal-about .about {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body.reveal-about .about .container {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hide the native "Left" column of About, since ProfileSection takes that spot */
+body.reveal-about .about .left {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+/* Ensure the "Right" column reveals nicely next to it */
+body.reveal-about .about .right {
+    opacity: 1 !important;
+    transform: translateX(0);
+    transition: opacity 1s 0.4s ease, transform 1s 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

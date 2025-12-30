@@ -43,6 +43,8 @@
 .profilePicPlaceholder {
     width: 200px;
     height: 200px;
+    position: relative;
+    overflow: hidden;
     border-radius: 50%;
     background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
     border: 1px solid rgba(0, 0, 0, 0.1);

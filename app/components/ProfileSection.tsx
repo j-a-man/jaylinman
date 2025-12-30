@@ -1,11 +1,20 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './ProfileSection.module.css';
 
 const ProfileSection = () => {
     return (
-        <div className={styles.profileSection}>
+        <div className={`${styles.profileSection} profile-section`}>
             <div className={styles.profilePicWrapper}>
-                <div className={styles.profilePicPlaceholder}></div>
+                <div className={styles.profilePicPlaceholder} style={{ position: 'relative', overflow: 'hidden', transform: 'scale(1.1)' }}>
+                    <Image
+                        src="/Gemini_Generated_Image_w7559xw7559xw755.png"
+                        alt="Profile Picture"
+                        fill
+                        style={{ objectFit: 'cover', objectPosition: 'center top', transform: 'scale(1.1)' }}
+                        priority
+                    />
+                </div>
             </div>
 
             <div className={styles.quicklinksContainer}>
