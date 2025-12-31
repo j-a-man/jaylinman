@@ -852,52 +852,11 @@ body.ultra-mode .about .right {
     }
 }
 
-@supports (-webkit-text-stroke:2px #f2f2f2) {
+/* CSS Cleanup: Removed scattered Night Mode Project rules */
 
-    body.night-mode.home-page:not(.ultra-mode) .projects a,
-    body.ultra-mode.home-page:not(.ultra-mode) .projects a {
-        color: transparent;
-        -webkit-text-stroke: 2px #f2f2f2;
-        font-family: var(--font-logo), 'Druk Wide Web', sans-serif !important;
-    }
-}
+/* Rogue block 1 deleted */
 
-body.night-mode.home-page .projects li:hover a,
-body.night-mode.home-page .projects li.isSelected:hover a,
-body.night-mode.home-page .projects li.isSelected a {
-    color: #f2f2f2 !important;
-    -webkit-text-stroke: 0 !important;
-    -webkit-text-fill-color: #f2f2f2 !important;
-    text-stroke: 0 !important;
-    opacity: 1 !important;
-}
-
-body.night-mode.home-page:not(.ultra-mode):not(.intro):not(.outro) .projects.isHovering li:hover a,
-body.night-mode.home-page:not(.ultra-mode):not(.outro) .projects li.isSelected:hover a,
-body.night-mode.home-page:not(.ultra-mode):not(.outro) .projects li.isSelected a,
-body.ultra-mode.home-page:not(.ultra-mode):not(.intro):not(.outro) .projects.isHovering li:hover a,
-body.ultra-mode.home-page:not(.ultra-mode):not(.outro) .projects li.isSelected:hover a,
-body.ultra-mode.home-page:not(.ultra-mode):not(.outro) .projects li.isSelected a {
-    color: #f2f2f2 !important;
-    -webkit-text-stroke: 0 !important;
-    -webkit-text-fill-color: #f2f2f2 !important;
-    text-stroke: 0 !important;
-    opacity: 1 !important;
-}
-
-@supports (-webkit-text-stroke:2px #f2f2f2) {
-
-    body.night-mode.home-page:not(.ultra-mode).outro .projects.isHovering li:hover a,
-    body.night-mode.home-page:not(.ultra-mode).outro .projects li.isSelected:hover a,
-    body.night-mode.home-page:not(.ultra-mode).outro .projects li.isSelected a,
-    body.ultra-mode.home-page:not(.ultra-mode).outro .projects.isHovering li:hover a,
-    body.ultra-mode.home-page:not(.ultra-mode).outro .projects li.isSelected:hover a,
-    body.ultra-mode.home-page:not(.ultra-mode).outro .projects li.isSelected a {
-        color: transparent;
-        transition: color .5s .5s, opacity 1s;
-        -webkit-text-stroke: 2px #f2f2f2;
-    }
-}
+/* Rogue block 2 deleted */
 
 body.night-mode.home-page:not(.ultra-mode) .projects a:before,
 body.ultra-mode.home-page:not(.ultra-mode) .projects a:before {
@@ -906,18 +865,11 @@ body.ultra-mode.home-page:not(.ultra-mode) .projects a:before {
 
 body.night-mode.home-page:not(.ultra-mode) .projects a:after,
 body.ultra-mode.home-page:not(.ultra-mode) .projects a:after {
-    background-color: #f2f2f2
+    background-color: transparent;
+    color: #f2f2f2 !important;
 }
 
-@media screen and (max-width:767px) {
-    @supports (-webkit-text-stroke:1px #f2f2f2) {
-
-        body.night-mode.home-page:not(.ultra-mode) .projects a,
-        body.ultra-mode.home-page:not(.ultra-mode) .projects a {
-            -webkit-text-stroke: 1px #f2f2f2;
-        }
-    }
-}
+/* CSS Cleanup: Removed Night Mode Media Query rules */
 
 @supports (-webkit-text-stroke:1px #fff) {
 
@@ -1011,13 +963,14 @@ body.night-mode .logo {
 @media screen and (min-width:768px) {
     @supports (-webkit-text-stroke:1px #fff) {
         body.night-mode .logo:hover {
-            color: transparent
+            color: transparent !important;
+            -webkit-text-stroke: 1px #fff !important;
         }
     }
 }
 
 body.night-mode.work-page .case-study .hero:after {
-    background-color: #000
+    background-color: #ffffff
 }
 
 body.night-mode .flickity-page-dots .dot {
@@ -1101,7 +1054,7 @@ body.ultra-mode .content {
     transition: opacity .5s
 }
 
-@supports (-webkit-text-stroke:1px #000) {
+@supports (-webkit-text-stroke:1px #ffffff) {
     body.ultra-mode:not(.home-page) .ui.outline .logo:hover {
         color: #4801ff
     }
@@ -3252,50 +3205,67 @@ body:not(.home-page):not(.journal-page):not(.aboutShow) .basicScroll .btn-page-b
     }
 }
 
-.home-page:not(.intro) .projectsLi:hover a {
-    transition-duration: .3s
-}
+/* [DELETED LEGACY BLOCK] */
 
-/* Ensure parent link is transparent and has no stroke to prevent doubling */
-.home-page:not(.intro) .projectsLi:hover a {
-    color: transparent !important;
-    text-shadow: none !important;
+/* =========================================
+   PROJECT LIST STYLES (RESTORED LEGACY)
+   ========================================= */
+
+/* 1. Base Link Style (No Strokes Here!) */
+.home-page .projects a {
     -webkit-text-stroke: 0 transparent !important;
 }
 
-/* Apply outline ONLY to the deepest text span using paint-order to mask inner stroke for single-line effect */
+/* 2. Text Span Style (Apply Strokes Here) */
+.home-page .projects a .slideUp>span {
+    display: inline-block;
+    padding: 0 0.1em;
+    transition: color 0.3s, -webkit-text-stroke 0.3s;
+}
+
+/* --- LIGHT MODE STATES --- */
+
+/* Hover: White Text + Thick Black Outline */
 .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
     color: #f2f2f2 !important;
+    -webkit-text-fill-color: #f2f2f2 !important;
     -webkit-text-stroke: 2.5px #000 !important;
     -webkit-text-stroke-width: 3.9px !important;
     paint-order: stroke fill !important;
     text-shadow: none !important;
+    opacity: 1 !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
 }
 
-/* Night Mode: Match background color and white stroke */
-body.night-mode .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
-    color: #142641 !important;
-    /* Match night mode deep blue BG */
-    -webkit-text-stroke: 2.5px #ffffff !important;
-    -webkit-text-stroke-width: 3.9px !important;
-    paint-order: stroke fill !important;
-    text-shadow: none !important;
-}
+/* --- DARK MODE STATES --- */
 
-/* FIX: Explicitly define Resting State for Night Mode to prevent multi-line artifacts */
+/* Fix: Ensure parent <a> is explicitly transparent in Dark Mode */
 body.night-mode .home-page .projects a {
     color: transparent !important;
     -webkit-text-stroke: 0 transparent !important;
 }
 
-body.night-mode .home-page .projects a .slideUp>span {
+/* Hover: Dark Blue Text + Thick White Outline */
+body.night-mode .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
     color: #142641 !important;
-    /* Fill matches background */
-    -webkit-text-stroke: 1px #ffffff !important;
-    /* Thinner stroke for resting state */
-    -webkit-text-stroke-width: 1px !important;
+    /* Match night mode deep blue BG */
+    -webkit-text-fill-color: #142641 !important;
+    -webkit-text-stroke: 2.5px #ffffff !important;
+    -webkit-text-stroke-width: 3.9px !important;
     paint-order: stroke fill !important;
     text-shadow: none !important;
+    transition: none !important;
+}
+
+/* Rest: Transparent + Thin White Outline */
+body.night-mode .home-page .projects a .slideUp>span {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    /* Thinner stroke for resting state */
+    -webkit-text-stroke: 1px #ffffff !important;
+    -webkit-text-stroke-width: 1px !important;
+    paint-order: stroke fill !important;
 }
 
 .home-page .projects a {
@@ -3310,9 +3280,10 @@ body.night-mode .home-page .projects a .slideUp>span {
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
-    font-size: 9.6vw;
+    font-size: 9.5rem;
+    /* Fixed REM for Zoom Support */
     letter-spacing: .02em;
-    line-height: .9em;
+    line-height: 1.05em;
     transition: color .5s, opacity .5s;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -3325,11 +3296,7 @@ body.night-mode .home-page .projects a .slideUp>span {
     display: inline-block;
 }
 
-@supports (-webkit-text-stroke:1px #000) {
-    .home-page .projects a {
-        -webkit-text-stroke: 1px #000;
-    }
-}
+/* CSS Cleanup: Removed legacy support block */
 
 .home-page .projects a:before {
     content: attr(data-info);
@@ -3357,34 +3324,45 @@ body.night-mode .home-page .projects a .slideUp>span {
     }
 }
 
+.home-page .projects {
+    counter-reset: project-num;
+}
+
+.home-page .projects a {
+    counter-increment: project-num;
+}
+
 .home-page .projects a:after {
-    content: "";
+    content: counter(project-num, decimal-leading-zero);
     position: absolute;
-    top: 0.05em;
-    /* Moved higher up as requested */
-    left: -.3em;
-    width: 2px;
-    height: .85em;
-    background-color: #000;
-    transform: rotate(25deg);
-    pointer-events: none
+    top: 0.15em;
+    left: -0.6em;
+
+    /* Typography */
+    font-family: var(--font-syne), sans-serif;
+    font-size: 0.25em;
+    /* Subtle size */
+    font-weight: 500;
+    color: #000;
+    letter-spacing: -0.05em;
+
+    /* Reset previous "Slash" styles */
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+    transform: none !important;
+    pointer-events: none;
 }
 
 @media screen and (min-width:768px) and (max-width:1320px) {
     .home-page .projects a {
-        font-size: 7.4vw
+        font-size: 7rem;
+        /* Fixed REM for Zoom Support */
     }
 
-    @supports (-webkit-text-stroke:2px #000) {
-        .home-page .projects a {
-            -webkit-text-stroke-width: 2px;
-            text-stroke-width: 2px
-        }
-    }
+    /* CSS Cleanup: Removed Tablet stroke rules */
 
-    .home-page .projects a:after {
-        width: 2px
-    }
+    /* Legacy slash width removed */
 }
 
 @media screen and (max-width:767px) {
@@ -3401,16 +3379,9 @@ body.night-mode .home-page .projects a .slideUp>span {
         padding-bottom: 17vw
     }
 
-    @supports (-webkit-text-stroke:1px #000) {
-        .home-page .projects a {
-            -webkit-text-stroke-width: 1px;
-            text-stroke-width: 1px
-        }
-    }
+    /* CSS Cleanup: Removed Mobile stroke rules */
 
-    .home-page .projects a:after {
-        width: 1px
-    }
+    /* Legacy slash width removed */
 }
 
 @media screen and (max-width:420px) {
@@ -3424,17 +3395,15 @@ body.night-mode .home-page .projects a .slideUp>span {
         font-size: 7px
     }
 
-    .home-page .projects a:after {
-        top: 10px;
-        left: -15px
-    }
+    /* Legacy slash position removed */
 
     .home-page .projects {
         width: 100%
     }
 
     .home-page .projects a {
-        font-size: 13vw;
+        font-size: 3.5rem;
+        /* Fixed REM for Zoom Support */
         letter-spacing: normal
     }
 }
@@ -4668,4 +4637,86 @@ body.night-mode .intro-text .welcome {
         width: 90%;
         max-width: 320px;
     }
+}
+
+/* =========================================
+   FINAL PROJECT BUTTON STYLES (NUCLEAR OVERRIDE)
+   ========================================= */
+
+/* 1. Base Link Style (Restored Layout for Numbering) */
+.home-page .projects a {
+    display: block !important;
+    position: relative !important;
+    width: fit-content !important;
+    -webkit-text-stroke: 0 transparent !important;
+    text-decoration: none !important;
+    margin-left: 0;
+}
+
+/* 2. Text Span Style */
+.home-page .projects a .slideUp>span {
+    display: inline-block !important;
+    padding: 0 0.1em !important;
+    transition: color 0.3s, -webkit-text-stroke 0.3s !important;
+}
+
+/* 3. Numbering Spacing Override (More Gap) & Color */
+.home-page .projects a:after {
+    left: -1.0em !important;
+    transition: color 0.3s !important;
+}
+
+/* Dark Mode Numbering */
+body.night-mode .home-page .projects a:after {
+    color: #ffffff !important;
+}
+
+/* --- LIGHT MODE --- */
+/* Hover: White Text + Bold Black Outline (3.9px) */
+body:not(.night-mode).home-page:not(.intro) .projectsLi:hover a .slideUp>span {
+    color: #f2f2f2 !important;
+    -webkit-text-fill-color: #f2f2f2 !important;
+    -webkit-text-stroke: 2.5px #000 !important;
+    -webkit-text-stroke-width: 3.9px !important;
+    paint-order: stroke fill !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+}
+
+/* --- DARK MODE --- */
+
+/* Rest: Transparent + Thin White Outline (1px) */
+body.night-mode.home-page .projects li a,
+body.night-mode.home-page .projects a {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    -webkit-text-stroke: 1px #ffffff !important;
+    -webkit-text-stroke-width: 1px !important;
+}
+
+body.night-mode.home-page .projects li a .slideUp>span,
+body.night-mode.home-page .projects a .slideUp>span {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+    -webkit-text-stroke: 1px #ffffff !important;
+    -webkit-text-stroke-width: 1px !important;
+    paint-order: stroke fill !important;
+}
+
+/* Hover: Navy Blue Fill + Bold White Outline (3.9px) */
+/* Selector chain without 'html' */
+body.night-mode.home-page:not(.intro) .projectsLi:hover a .slideUp>span,
+body.night-mode.home-page:not(.intro) .projects li:hover a .slideUp>span,
+body.night-mode.home-page:not(.intro) .projects a:hover .slideUp>span {
+    color: #142641 !important;
+    /* Navy Blue */
+    -webkit-text-fill-color: #142641 !important;
+    -webkit-text-stroke: 2.5px #ffffff !important;
+    -webkit-text-stroke-width: 3.9px !important;
+    paint-order: stroke fill !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+    transition: none !important;
 }

@@ -184,12 +184,14 @@ const CanvasCanvas = ({ isNightMode }: { isNightMode: boolean }) => {
                             ctx.fillRect(x + gap / 2, y + gap / 2, blockSize - gap, blockSize - gap);
                         }
                     } else {
-                        // Draw extremely faint grid everywhere? 
-                        // Maybe not, cleaner if it's just the flashlight.
-                        if (isNightMode) {
-                            ctx.fillStyle = `rgba(255, 255, 255, 0.02)`; // Very faint guide
-                            ctx.fillRect(x + gap / 2, y + gap / 2, blockSize - gap, blockSize - gap);
-                        }
+                        // Draw extremely faint grid everywhere
+                        // Night Mode: Faint white
+                        // Light Mode: Faint black/gray so they are visible on white background
+                        ctx.fillStyle = isNightMode
+                            ? `rgba(255, 255, 255, 0.02)`
+                            : `rgba(0, 0, 0, 0.04)`;
+
+                        ctx.fillRect(x + gap / 2, y + gap / 2, blockSize - gap, blockSize - gap);
                     }
                 }
             }
