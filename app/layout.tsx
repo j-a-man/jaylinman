@@ -16,22 +16,22 @@ const tenor = Tenor_Sans({ subsets: ['latin'], weight: '400', variable: '--font-
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Van Holtz Co – Work – Studio Mega',
-  description: 'Studio of Eric Van Holtz. Specializing in refined digital web experiences with a focus on animated, responsive, and interactive content.',
+  title: "Jaylin Man's Portfolio",
+  description: 'Portfolio of Jaylin Man. Specializing in software engineering, web development, and algorithmic problem solving.',
   openGraph: {
     type: 'website',
-    url: 'https://vanholtz.co/work/studiomega/',
-    title: 'Van Holtz Co – Work – Studio Mega',
-    description: 'Studio of Eric Van Holtz. Specializing in refined digital web experiences with a focus on animated, responsive, and interactive content.',
-    images: ['https://vanholtz.co/img/social_share.png'],
+    url: 'https://jaylinman.vercel.app',
+    title: "Jaylin Man's Portfolio",
+    description: 'Portfolio of Jaylin Man. Specializing in software engineering, web development, and algorithmic problem solving.',
+    // images: ['/social_share.png'], // Update if you have one
   },
   twitter: {
     card: 'summary_large_image',
-    site: 'Van Holtz Co',
-    creator: '@vanholtzco',
-    title: 'Van Holtz Co – Work – Studio Mega',
-    description: 'Studio of Eric Van Holtz. Specializing in refined digital web experiences with a focus on animated, responsive, and interactive content.',
-    images: ['https://vanholtz.co/img/social_share.png'],
+    site: 'Jaylin Man',
+    creator: '@jaylinman',
+    title: "Jaylin Man's Portfolio",
+    description: 'Portfolio of Jaylin Man. Specializing in software engineering, web development, and algorithmic problem solving.',
+    // images: ['/social_share.png'],
   },
 };
 
@@ -45,7 +45,7 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/duo3tdm.css" />
       </head>
-      <body className={`navTop loading first-load ${syne.variable} ${unbounded.variable} ${space.variable} ${tenor.variable} ${manrope.variable}`}>
+      <body suppressHydrationWarning className={`navTop loading first-load ${syne.variable} ${unbounded.variable} ${space.variable} ${tenor.variable} ${manrope.variable}`}>
         <ThemeSwitcher />
         <ProfileSection />
         <PixelBackground />

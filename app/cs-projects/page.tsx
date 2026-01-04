@@ -173,7 +173,7 @@ export default function CSProjectsPage() {
                     <h1 className={styles.title}>CS Projects</h1>
                     <p className={styles.subtitle}>
                         A curated collection of my work in software engineering,
-                        web development, and algorithmic problem solving.
+                        web development, and application development.
                     </p>
                 </div>
 
