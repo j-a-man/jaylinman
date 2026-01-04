@@ -3230,6 +3230,13 @@ body:not(.home-page):not(.journal-page):not(.aboutShow) .basicScroll .btn-page-b
         pointer-events: auto !important;
         cursor: pointer !important;
     }
+
+    /* Disable 3D hover effect on mobile to prevent touch redirect failure */
+    .home-page:not(.intro) .projectsLi:hover .projectContainer,
+    .home-page:not(.intro) .projectsLi.isHovered .projectContainer {
+        transform: rotateY(30deg) translateZ(0) scale(1) !important;
+        transition: none !important;
+    }
 }
 
 @supports (-webkit-text-stroke:3px #151515) {
@@ -3410,13 +3417,26 @@ body.night-mode .home-page .projects a .slideUp>span {
     }
 
     .home-page .stage {
-        padding-top: 17vw;
-        padding-bottom: 17vw
+        padding-top: 15vh;
+        /* Reduced from 17vw/25vw */
+        padding-bottom: 5vh;
+        /* Reduced from 17vw */
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .home-page .projects a {
-        font-size: 4.5rem;
-        letter-spacing: normal;
+        font-size: 11vw;
+        /* Increased from 4.5rem to be responsive and larger */
+        letter-spacing: -0.02em;
+        /* Tighter tracking for bold look */
+        line-height: 1.1em;
+    }
+
+    .home-page .projectsLi {
+        margin-bottom: 1.5vh;
     }
 
     /* CSS Cleanup: Removed Mobile stroke rules */
@@ -3426,7 +3446,8 @@ body.night-mode .home-page .projects a .slideUp>span {
 
 @media screen and (max-width:420px) {
     .home-page .stage {
-        padding-top: 25vw
+        padding-top: 15vh !important;
+        /* Force consistency */
     }
 
     .home-page .projects a:before {
@@ -4854,4 +4875,24 @@ body.night-mode #navbar {
 .animate-content {
     opacity: 0 !important;
     animation: fadeInUpGlobal 0.8s ease-out 0.2s both;
+}
+/* Mobile Menu Open State - Moved from MobileMenu.tsx to fix hydration */
+.mobile-nav-inner.open {
+    background-color: transparent !important;
+}
+
+.mobile-nav-inner.open:before {
+    transform: rotate(45deg);
+    top: 0;
+    background-color: #fff !important;
+    position: fixed;
+    z-index: 1003;
+}
+
+.mobile-nav-inner.open:after {
+    transform: rotate(-45deg);
+    bottom: 0;
+    background-color: #fff !important;
+    position: fixed;
+    z-index: 1003;
 }

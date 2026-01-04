@@ -122,6 +122,8 @@ const PixelBackground = () => {
 const CanvasCanvas = ({ isNightMode }: { isNightMode: boolean }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const mouseRef = useRef({ x: -1000, y: -1000 });
+    const isMobileRef = useRef(false);
+    const timeRef = useRef(0);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -132,39 +134,55 @@ const CanvasCanvas = ({ isNightMode }: { isNightMode: boolean }) => {
         const blockSize = 50;
         const gap = 4; // Distinct pixel gap
 
+        const checkMobile = () => {
+            isMobileRef.current = window.innerWidth <= 768; // Mobile breakpoint
+        };
+
         const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            checkMobile();
         };
 
         window.addEventListener('resize', resize);
-        resize();
+        resize(); // Init
 
         const onMouseMove = (e: MouseEvent) => {
-            mouseRef.current = { x: e.clientX, y: e.clientY };
+            if (!isMobileRef.current) {
+                mouseRef.current = { x: e.clientX, y: e.clientY };
+            }
         };
         window.addEventListener('mousemove', onMouseMove);
 
         let animationFrameId: number;
 
         const render = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Standard clear
-            // Note: If we want the "pixels" to be visible even without hover (very faint), we can draw them with low opacity.
-            // User asked for "glow based on where my mouse is".
-            // Let's draw mostly empty, but highlight near mouse.
+            // Standard clear
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             const cols = Math.ceil(canvas.width / blockSize);
             const rows = Math.ceil(canvas.height / blockSize);
 
-            // Optimization: Only compute range around mouse?
-            // Brute force is fine for typical screen resolutions (1920x1080 / 50 = ~800 rects). Very cheap.
+            // Mobile Auto-Animation Logic
+            if (isMobileRef.current) {
+                timeRef.current += 0.02; // Speed of auto movement
+
+                // Lissajous curve / Orbiting pattern for smooth random-like movement
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const amplitudeX = canvas.width * 0.35;
+                const amplitudeY = canvas.height * 0.35;
+
+                const autoX = centerX + Math.sin(timeRef.current) * amplitudeX;
+                const autoY = centerY + Math.cos(timeRef.current * 0.7) * amplitudeY;
+
+                mouseRef.current = { x: autoX, y: autoY };
+            }
 
             const mx = mouseRef.current.x;
             const my = mouseRef.current.y;
 
             // Theme colors
-            // Night: Glowing Cyan/White? Or just white? 
-            // "Modern futuristic". Cyan is safe.
             const r = isNightMode ? 100 : 20;
             const g = isNightMode ? 200 : 38;
             const b = isNightMode ? 255 : 65;
@@ -185,8 +203,6 @@ const CanvasCanvas = ({ isNightMode }: { isNightMode: boolean }) => {
                         }
                     } else {
                         // Draw extremely faint grid everywhere
-                        // Night Mode: Faint white
-                        // Light Mode: Faint black/gray so they are visible on white background
                         ctx.fillStyle = isNightMode
                             ? `rgba(255, 255, 255, 0.02)`
                             : `rgba(0, 0, 0, 0.04)`;

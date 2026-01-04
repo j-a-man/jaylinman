@@ -87,26 +87,6 @@ const MobileMenu = () => {
             {/* Portal the overlay to document.body to escape stacking contexts */}
             {mounted && createPortal(<MenuOverlay />, document.body)}
 
-            {/* Global style override for the hamburger icon animation when open */}
-            <style jsx global>{`
-                .mobile-nav-inner.open {
-                    background-color: transparent !important;
-                }
-                .mobile-nav-inner.open:before {
-                    transform: rotate(45deg);
-                    top: 0;
-                    background-color: #fff !important;
-                    position: fixed; /* Fix for when button is in header but overlay is portaled */
-                    z-index: 1003;
-                }
-                .mobile-nav-inner.open:after {
-                    transform: rotate(-45deg);
-                    bottom: 0;
-                    background-color: #fff !important;
-                     position: fixed;
-                     z-index: 1003;
-                }
-            `}</style>
         </>
     );
 };
