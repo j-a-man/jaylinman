@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import Link from 'next/link';
 import './globals.css';
 import ScrollAnimations from './components/ScrollAnimations';
 import { Syne, Unbounded, Space_Grotesk, Tenor_Sans, Manrope } from 'next/font/google';
 import ThemeSwitcher from './components/ThemeSwitcher';
-
+import ProfileSection from './components/ProfileSection';
 import PixelBackground from './components/PixelBackground';
 
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap' });
@@ -45,14 +46,16 @@ export default function RootLayout({
       </head>
       <body className={`navTop loading first-load ${syne.variable} ${unbounded.variable} ${space.variable} ${tenor.variable} ${manrope.variable}`}>
         <ThemeSwitcher />
+        <ProfileSection />
         <PixelBackground />
         <ScrollAnimations />
-        <header className="ui">
-          <a className="logo" href="/">
+        <ScrollAnimations />
+        <header id="navbar" className="ui">
+          <Link className="logo" href="/">
             <span className="slideUp">
               <span>JMAN.</span>
             </span>
-          </a>
+          </Link>
           <button className="mobile-nav" type="button" role="button" aria-label="Menu">
             <span className="mobile-nav-box">
               <span className="mobile-nav-inner"></span>

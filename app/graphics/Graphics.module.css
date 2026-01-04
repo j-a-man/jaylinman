@@ -1,0 +1,212 @@
+/* Main Container */
+.container {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out 0.1s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: var(--font-syne), sans-serif;
+    color: #000;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    font-family: var(--font-manrope), sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Filter Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    font-family: var(--font-manrope), sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.activeTab {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.activeTab:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Grid Layout */
+.grid {
+    column-count: 3;
+    column-gap: 25px;
+}
+
+.cardWrapper {
+    break-inside: avoid;
+    margin-bottom: 25px;
+    width: 100%;
+    display: inline-block;
+    /* Fix for column-count breakage */
+}
+
+/* Card Style */
+.card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+}
+
+.cardBody {
+    padding: 20px;
+}
+
+.cardTitle {
+    font-family: var(--font-syne), sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.cardOrg {
+    font-family: var(--font-manrope), sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Dark Mode Overrides */
+:global(body.night-mode) .title {
+    color: #fff;
+}
+
+:global(body.night-mode) .subtitle {
+    color: #ccc;
+}
+
+:global(body.night-mode) .tab {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+}
+
+:global(body.night-mode) .tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+:global(body.night-mode) .activeTab {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+:global(body.night-mode) .card {
+    background: rgba(30, 30, 30, 0.6);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+:global(body.night-mode) .card:hover {
+    background: rgba(40, 40, 40, 0.8);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+:global(body.night-mode) .cardTitle {
+    color: #fff;
+}
+
+:global(body.night-mode) .cardOrg {
+    color: #aaa;
+}
+
+:global(body.night-mode) .image {
+    background: linear-gradient(135deg, #333 0%, #444 100%);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        column-count: 1;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+}

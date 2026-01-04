@@ -1,10 +1,21 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import styles from './ProfileSection.module.css';
 
 const ProfileSection = () => {
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+    const isAbout = pathname === '/about';
+
+    if (!isHome && !isAbout) {
+        return null;
+    }
+
     return (
-        <div className={styles.profileSection}>
+        <div className={`${styles.profileSection} ${isAbout ? styles.positionLeft : styles.positionRight}`}>
             <div className={styles.profilePicWrapper}>
                 <div className={styles.profilePicPlaceholder} style={{ position: 'relative', overflow: 'hidden', transform: 'scale(1.1)' }}>
                     <Image

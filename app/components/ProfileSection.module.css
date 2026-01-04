@@ -1,13 +1,19 @@
 /* Profile Sidebar Absolute Layout */
 .profileSection {
     position: fixed;
-    right: 15vw;
     top: 20vh;
     width: 280px;
     z-index: 1000;
-    opacity: 0;
-    animation: profileFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+    transition: left 1.0s cubic-bezier(0.65, 0, 0.35, 1);
     pointer-events: none !important;
+}
+
+.positionRight {
+    left: calc(100vw - 15vw - 280px);
+}
+
+.positionLeft {
+    left: 15vw;
 }
 
 /* Ensure ALL children are transparent to clicks/scrolls by default */

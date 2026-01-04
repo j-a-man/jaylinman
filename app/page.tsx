@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import ProfileSection from './components/ProfileSection';
 import EmailSidebar from './components/EmailSidebar';
 
 export default function HomePage() {
@@ -17,7 +16,6 @@ export default function HomePage() {
 
   return (
     <div id="barba-wrapper" aria-live="polite">
-      <ProfileSection />
       <EmailSidebar />
       <div className="barba-container" data-namespace="home-page" style={{ visibility: 'visible' }}>
         <div className="barba-transition-container">
@@ -27,7 +25,7 @@ export default function HomePage() {
                 <ul className="projects">
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="/project" data-barba="HomeTransition">
+                      <Link href="/about" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>ABOUT</span>
                         </span>
@@ -36,7 +34,7 @@ export default function HomePage() {
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="#" data-barba="HomeTransition">
+                      <Link href="/cs-projects" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>CS <br /> PROJECTS</span>
                         </span>
@@ -45,7 +43,7 @@ export default function HomePage() {
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="#" data-barba="HomeTransition">
+                      <Link href="/resume" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>RESUME/ <br /> CV</span>
                         </span>
@@ -54,25 +52,17 @@ export default function HomePage() {
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="#" data-barba="HomeTransition">
+                      <Link href="/graphics" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>GRAPHICS <br /> PORTFOLIO</span>
                         </span>
                       </Link>
                     </div>
                   </li>
+
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="#" data-barba="HomeTransition">
-                        <span className="slideUp">
-                          <span>GALLERY</span>
-                        </span>
-                      </Link>
-                    </div>
-                  </li>
-                  <li className="projectsLi" data-barba="HomeTransition">
-                    <div className="projectContainer">
-                      <Link href="#" data-barba="HomeTransition">
+                      <Link href="/contact" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>CONTACT</span>
                         </span>
