@@ -169,10 +169,15 @@
 @media screen and (max-width: 1024px) {
     .profileSection {
         position: relative;
+        left: auto !important;
+        /* Force reset of left positioning */
         right: auto;
         top: auto;
-        margin: 50px auto;
+        margin: 150px auto 50px auto;
+        /* Increased top margin to sit below navbar */
         width: 90%;
         max-width: 320px;
+        z-index: 90;
+        /* Lower z-index to stay behind navbar */
     }
 }

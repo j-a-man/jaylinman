@@ -517,7 +517,7 @@ button.link {
     position: fixed;
     top: 5vh;
     right: 110px !important;
-    z-index: 1;
+    z-index: 2000;
     margin: 0;
     overflow: hidden;
     text-transform: none;
@@ -543,7 +543,8 @@ button.link {
 
     .btn-back,
     .btn-page-back {
-        top: 5vw;
+        display: block;
+        top: 35.5px;
         right: 15px
     }
 
@@ -969,6 +970,18 @@ body.night-mode .logo {
 
 @media screen and (min-width:768px) {
     @supports (-webkit-text-stroke:1px #fff) {
+        body.night-mode .logo:hover {
+            color: transparent !important;
+            -webkit-text-stroke: 1px #fff !important;
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    @supports (-webkit-text-stroke:1px #fff) {
+
+        body.night-mode .logo:active,
+        /* Touch feedback */
         body.night-mode .logo:hover {
             color: transparent !important;
             -webkit-text-stroke: 1px #fff !important;
@@ -3074,6 +3087,13 @@ body:not(.home-page):not(.journal-page):not(.aboutShow) .basicScroll .btn-page-b
     overflow-y: auto
 }
 
+@media screen and (max-width: 767px) {
+    .home-page .stagePerspective {
+        height: auto !important;
+        overflow: visible !important;
+    }
+}
+
 .home-page .stageContainer {
     position: relative;
     width: 100%;
@@ -3201,6 +3221,14 @@ body:not(.home-page):not(.journal-page):not(.aboutShow) .basicScroll .btn-page-b
     .home-page .projectsLi.isSelected .projectContainer,
     .home-page .projectsLi.isSelected:hover .projectContainer {
         transition: transform 1.5s cubic-bezier(.075, .82, .165, 1), opacity 1.5s cubic-bezier(.075, .82, .165, 1)
+    }
+
+    /* Fix: Ensure touch events register on mobile */
+    .home-page .projects,
+    .home-page .projectsLi,
+    .home-page .projects a {
+        pointer-events: auto !important;
+        cursor: pointer !important;
     }
 }
 
@@ -3386,6 +3414,11 @@ body.night-mode .home-page .projects a .slideUp>span {
         padding-bottom: 17vw
     }
 
+    .home-page .projects a {
+        font-size: 4.5rem;
+        letter-spacing: normal;
+    }
+
     /* CSS Cleanup: Removed Mobile stroke rules */
 
     /* Legacy slash width removed */
@@ -3409,7 +3442,7 @@ body.night-mode .home-page .projects a .slideUp>span {
     }
 
     .home-page .projects a {
-        font-size: 3.5rem;
+        font-size: 2.2rem;
         /* Fixed REM for Zoom Support */
         letter-spacing: normal
     }

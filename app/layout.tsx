@@ -7,6 +7,7 @@ import { Syne, Unbounded, Space_Grotesk, Tenor_Sans, Manrope } from 'next/font/g
 import ThemeSwitcher from './components/ThemeSwitcher';
 import ProfileSection from './components/ProfileSection';
 import PixelBackground from './components/PixelBackground';
+import MobileMenu from './components/MobileMenu';
 
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap' });
 const unbounded = Unbounded({ subsets: ['latin'], variable: '--font-unbounded', display: 'swap' });
@@ -56,11 +57,7 @@ export default function RootLayout({
               <span>JMAN.</span>
             </span>
           </Link>
-          <button className="mobile-nav" type="button" role="button" aria-label="Menu">
-            <span className="mobile-nav-box">
-              <span className="mobile-nav-inner"></span>
-            </span>
-          </button>
+          <MobileMenu />
         </header>
 
         <div
