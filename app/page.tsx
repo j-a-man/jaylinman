@@ -25,7 +25,7 @@ export default function HomePage() {
                 <ul className="projects">
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="/about" data-barba="HomeTransition">
+                      <Link href="/about" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>ABOUT</span>
                         </span>
@@ -34,7 +34,7 @@ export default function HomePage() {
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="/cs-projects" data-barba="HomeTransition">
+                      <Link href="/cs-projects" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>CS <br /> PROJECTS</span>
                         </span>
@@ -43,7 +43,7 @@ export default function HomePage() {
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="/resume" data-barba="HomeTransition">
+                      <Link href="/resume" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>RESUME/ <br /> CV</span>
                         </span>
@@ -52,7 +52,7 @@ export default function HomePage() {
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="/graphics" data-barba="HomeTransition">
+                      <Link href="/graphics" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>GRAPHICS <br /> PORTFOLIO</span>
                         </span>
@@ -62,7 +62,7 @@ export default function HomePage() {
 
                   <li className="projectsLi" data-barba="HomeTransition">
                     <div className="projectContainer">
-                      <Link href="/contact" data-barba="HomeTransition">
+                      <Link href="/contact" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
                           <span>CONTACT</span>
                         </span>
