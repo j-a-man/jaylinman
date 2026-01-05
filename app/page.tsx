@@ -2,9 +2,11 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import EmailSidebar from './components/EmailSidebar';
 
 export default function HomePage() {
+  const router = useRouter();
   useEffect(() => {
     document.body.classList.add('home-page');
     // Also remove work-page if it stuck around (though cleanup should handle it)
@@ -23,7 +25,7 @@ export default function HomePage() {
             <div className="stageContainer" style={{ opacity: 1, minHeight: '100vh' }}>
               <main className="stage" style={{ transform: 'translate3d(0px, 0px, 0px)' }}>
                 <ul className="projects">
-                  <li className="projectsLi" data-barba="HomeTransition">
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/about')}>
                     <div className="projectContainer">
                       <Link href="/about" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -32,7 +34,7 @@ export default function HomePage() {
                       </Link>
                     </div>
                   </li>
-                  <li className="projectsLi" data-barba="HomeTransition">
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/cs-projects')}>
                     <div className="projectContainer">
                       <Link href="/cs-projects" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -41,7 +43,7 @@ export default function HomePage() {
                       </Link>
                     </div>
                   </li>
-                  <li className="projectsLi" data-barba="HomeTransition">
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/resume')}>
                     <div className="projectContainer">
                       <Link href="/resume" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -50,7 +52,7 @@ export default function HomePage() {
                       </Link>
                     </div>
                   </li>
-                  <li className="projectsLi" data-barba="HomeTransition">
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/graphics')}>
                     <div className="projectContainer">
                       <Link href="/graphics" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -60,7 +62,7 @@ export default function HomePage() {
                     </div>
                   </li>
 
-                  <li className="projectsLi" data-barba="HomeTransition">
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/contact')}>
                     <div className="projectContainer">
                       <Link href="/contact" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">

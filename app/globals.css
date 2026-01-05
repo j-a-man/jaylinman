@@ -4973,4 +4973,21 @@ body.night-mode #navbar {
     .home-page .projects a.mobile-project-link {
         font-size: 15vw !important;
     }
+
+    /* Disable inner link interaction so the LI's onClick handles it */
+    .home-page .projects a {
+        pointer-events: none !important;
+    }
+
+    .home-page .projectsLi {
+        pointer-events: auto !important;
+    }
+
+    /* Kill standard text animations */
+    .home-page .projects .slideUp>span {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
 }
