@@ -3276,16 +3276,20 @@ body:not(.home-page):not(.journal-page):not(.aboutShow) .basicScroll .btn-page-b
 /* --- LIGHT MODE STATES --- */
 
 /* Hover: White Text + Thick Black Outline */
-.home-page:not(.intro) .projectsLi:hover a .slideUp>span {
-    color: #f2f2f2 !important;
-    -webkit-text-fill-color: #f2f2f2 !important;
-    -webkit-text-stroke: 2.5px #000 !important;
-    -webkit-text-stroke-width: 3.9px !important;
-    paint-order: stroke fill !important;
-    text-shadow: none !important;
-    opacity: 1 !important;
-    opacity: 1 !important;
-    mix-blend-mode: normal !important;
+@media (hover: hover) {
+
+    /* Hover: White Text + Thick Black Outline */
+    .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
+        color: #f2f2f2 !important;
+        -webkit-text-fill-color: #f2f2f2 !important;
+        -webkit-text-stroke: 2.5px #000 !important;
+        -webkit-text-stroke-width: 3.9px !important;
+        paint-order: stroke fill !important;
+        text-shadow: none !important;
+        opacity: 1 !important;
+        opacity: 1 !important;
+        mix-blend-mode: normal !important;
+    }
 }
 
 /* --- DARK MODE STATES --- */
@@ -3297,15 +3301,19 @@ body.night-mode .home-page .projects a {
 }
 
 /* Hover: Dark Blue Text + Thick White Outline */
-body.night-mode .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
-    color: #142641 !important;
-    /* Match night mode deep blue BG */
-    -webkit-text-fill-color: #142641 !important;
-    -webkit-text-stroke: 2.5px #ffffff !important;
-    -webkit-text-stroke-width: 3.9px !important;
-    paint-order: stroke fill !important;
-    text-shadow: none !important;
-    transition: none !important;
+@media (hover: hover) {
+
+    /* Hover: Dark Blue Text + Thick White Outline */
+    body.night-mode .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
+        color: #142641 !important;
+        /* Match night mode deep blue BG */
+        -webkit-text-fill-color: #142641 !important;
+        -webkit-text-stroke: 2.5px #ffffff !important;
+        -webkit-text-stroke-width: 3.9px !important;
+        paint-order: stroke fill !important;
+        text-shadow: none !important;
+        transition: none !important;
+    }
 }
 
 /* Rest: Transparent + Thin White Outline */
