@@ -4981,4 +4981,42 @@ body.night-mode #navbar {
     .home-page .projects a.mobile-project-link {
         font-size: 15vw !important;
     }
+
+    /* 
+       CRITICAL MOBILE FIX: 
+       Disable ALL hover/active visual changes to prevent "Double Tap" / Sticky Hover issues.
+       Force the browser to treat tap as click immediately. 
+    */
+    .home-page .projectsLi:hover a .slideUp>span,
+    .home-page .projectsLi:active a .slideUp>span,
+    .home-page .projectsLi:focus a .slideUp>span,
+    .home-page .projectsLi.isHovered a .slideUp>span {
+        color: #000 !important;
+        -webkit-text-fill-color: #000 !important;
+        -webkit-text-stroke: 0 transparent !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+
+    /* Handle Dark Mode Mobile Reset */
+    body.night-mode .home-page .projectsLi:hover a .slideUp>span,
+    body.night-mode .home-page .projectsLi:active a .slideUp>span,
+    body.night-mode .home-page .projectsLi:focus a .slideUp>span,
+    body.night-mode .home-page .projectsLi.isHovered a .slideUp>span {
+        color: transparent !important;
+        -webkit-text-fill-color: transparent !important;
+        -webkit-text-stroke: 1px #ffffff !important;
+        /* Keep default resting stroke */
+        transition: none !important;
+    }
+
+    /* Disable System Highlights and Selection */
+    .home-page .projects a,
+    .home-page .projectsLi {
+        -webkit-tap-highlight-color: transparent !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        touch-action: manipulation !important;
+        /* Optimize for touch */
+    }
 }
