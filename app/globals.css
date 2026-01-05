@@ -4910,7 +4910,7 @@ body.night-mode #navbar {
         width: 100% !important;
         max-width: none !important;
         /* Restore left padding for numbers, but keep it balanced */
-        padding-left: 18vw !important;
+        padding-left: 8vw !important;
         padding-right: 2vw !important;
         margin: 0 auto !important;
         text-align: left !important;
@@ -4936,14 +4936,14 @@ body.night-mode #navbar {
 
     /* Flat Text / Click Fix - Essential for mobile reliability */
     .home-page .projectContainer {
-        transform: rotateY(30deg) translateZ(0) scale(1) !important;
-        /* Restored 3D look */
+        transform: none !important;
+        /* REMOVED 3D EFFECT FOR RELIABILITY */
     }
 
     .home-page:not(.intro) .projectsLi:hover .projectContainer,
     .home-page:not(.intro) .projectsLi.isHovered .projectContainer,
     .home-page:not(.intro) .projectsLi:active .projectContainer {
-        transform: rotateY(30deg) translateZ(0) scale(1) !important;
+        transform: none !important;
         /* Keep static on interaction */
         transition: none !important;
     }
@@ -4951,7 +4951,7 @@ body.night-mode #navbar {
     /* Restore Numbers */
     .home-page .projects a:after {
         display: block !important;
-        left: -1.3em !important;
+        left: -0.8em !important;
         /* Position relative to text */
         font-size: 0.25em !important;
         /* Slightly smaller relative to huge text */
