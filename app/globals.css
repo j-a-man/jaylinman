@@ -3190,8 +3190,6 @@ body:not(.home-page):not(.journal-page):not(.aboutShow) .basicScroll .btn-page-b
 }
 
 .home-page .projectsLi {
-    position: relative;
-    /* Anchor for mobile click mask */
     cursor: pointer;
     transform-style: preserve-3d;
     backface-visibility: hidden;
@@ -3278,20 +3276,16 @@ body:not(.home-page):not(.journal-page):not(.aboutShow) .basicScroll .btn-page-b
 /* --- LIGHT MODE STATES --- */
 
 /* Hover: White Text + Thick Black Outline */
-@media (hover: hover) {
-
-    /* Hover: White Text + Thick Black Outline */
-    .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
-        color: #f2f2f2 !important;
-        -webkit-text-fill-color: #f2f2f2 !important;
-        -webkit-text-stroke: 2.5px #000 !important;
-        -webkit-text-stroke-width: 3.9px !important;
-        paint-order: stroke fill !important;
-        text-shadow: none !important;
-        opacity: 1 !important;
-        opacity: 1 !important;
-        mix-blend-mode: normal !important;
-    }
+.home-page:not(.intro) .projectsLi:hover a .slideUp>span {
+    color: #f2f2f2 !important;
+    -webkit-text-fill-color: #f2f2f2 !important;
+    -webkit-text-stroke: 2.5px #000 !important;
+    -webkit-text-stroke-width: 3.9px !important;
+    paint-order: stroke fill !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
 }
 
 /* --- DARK MODE STATES --- */
@@ -3303,19 +3297,15 @@ body.night-mode .home-page .projects a {
 }
 
 /* Hover: Dark Blue Text + Thick White Outline */
-@media (hover: hover) {
-
-    /* Hover: Dark Blue Text + Thick White Outline */
-    body.night-mode .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
-        color: #142641 !important;
-        /* Match night mode deep blue BG */
-        -webkit-text-fill-color: #142641 !important;
-        -webkit-text-stroke: 2.5px #ffffff !important;
-        -webkit-text-stroke-width: 3.9px !important;
-        paint-order: stroke fill !important;
-        text-shadow: none !important;
-        transition: none !important;
-    }
+body.night-mode .home-page:not(.intro) .projectsLi:hover a .slideUp>span {
+    color: #142641 !important;
+    /* Match night mode deep blue BG */
+    -webkit-text-fill-color: #142641 !important;
+    -webkit-text-stroke: 2.5px #ffffff !important;
+    -webkit-text-stroke-width: 3.9px !important;
+    paint-order: stroke fill !important;
+    text-shadow: none !important;
+    transition: none !important;
 }
 
 /* Rest: Transparent + Thin White Outline */
@@ -4982,58 +4972,5 @@ body.night-mode #navbar {
     /* Ensure container allows full width too */
     .home-page .projects a.mobile-project-link {
         font-size: 15vw !important;
-    }
-
-    /* 
-       CRITICAL MOBILE FIX: 
-       Disable ALL hover/active visual changes to prevent "Double Tap" / Sticky Hover issues.
-       Force the browser to treat tap as click immediately. 
-    */
-    .home-page .projectsLi:hover a .slideUp>span,
-    .home-page .projectsLi:active a .slideUp>span,
-    .home-page .projectsLi:focus a .slideUp>span,
-    .home-page .projectsLi.isHovered a .slideUp>span {
-        color: #000 !important;
-        -webkit-text-fill-color: #000 !important;
-        -webkit-text-stroke: 0 transparent !important;
-        opacity: 1 !important;
-        transition: none !important;
-    }
-
-    /* Handle Dark Mode Mobile Reset */
-    body.night-mode .home-page .projectsLi:hover a .slideUp>span,
-    body.night-mode .home-page .projectsLi:active a .slideUp>span,
-    body.night-mode .home-page .projectsLi:focus a .slideUp>span,
-    body.night-mode .home-page .projectsLi.isHovered a .slideUp>span {
-        color: transparent !important;
-        -webkit-text-fill-color: transparent !important;
-        -webkit-text-stroke: 1px #ffffff !important;
-        /* Keep default resting stroke */
-        transition: none !important;
-    }
-
-    /* Disable System Highlights and Selection */
-    .home-page .projects a,
-    .home-page .projectsLi {
-        -webkit-tap-highlight-color: transparent !important;
-        user-select: none !important;
-        -webkit-user-select: none !important;
-        touch-action: manipulation !important;
-        /* Optimize for touch */
-    }
-
-    /* THE GUARANTEE FIX: Invisible Click Mask */
-    /* This sits ON TOP of everything (z-index 50) and captures the click */
-    .mobile-click-mask {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        z-index: 50 !important;
-        display: block !important;
-        cursor: pointer !important;
-        background: transparent !important;
-        -webkit-tap-highlight-color: transparent !important;
     }
 }

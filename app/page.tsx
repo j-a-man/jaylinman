@@ -24,7 +24,6 @@ export default function HomePage() {
               <main className="stage" style={{ transform: 'translate3d(0px, 0px, 0px)' }}>
                 <ul className="projects">
                   <li className="projectsLi" data-barba="HomeTransition">
-                    <Link href="/about" className="mobile-click-mask" aria-label="About" data-barba="HomeTransition"></Link>
                     <div className="projectContainer">
                       <Link href="/about" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -34,7 +33,6 @@ export default function HomePage() {
                     </div>
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
-                    <Link href="/cs-projects" className="mobile-click-mask" aria-label="CS Projects" data-barba="HomeTransition"></Link>
                     <div className="projectContainer">
                       <Link href="/cs-projects" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -44,7 +42,6 @@ export default function HomePage() {
                     </div>
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
-                    <Link href="/resume" className="mobile-click-mask" aria-label="Resume" data-barba="HomeTransition"></Link>
                     <div className="projectContainer">
                       <Link href="/resume" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -54,7 +51,6 @@ export default function HomePage() {
                     </div>
                   </li>
                   <li className="projectsLi" data-barba="HomeTransition">
-                    <Link href="/graphics" className="mobile-click-mask" aria-label="Graphics" data-barba="HomeTransition"></Link>
                     <div className="projectContainer">
                       <Link href="/graphics" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
@@ -65,7 +61,6 @@ export default function HomePage() {
                   </li>
 
                   <li className="projectsLi" data-barba="HomeTransition">
-                    <Link href="/contact" className="mobile-click-mask" aria-label="Contact" data-barba="HomeTransition"></Link>
                     <div className="projectContainer">
                       <Link href="/contact" className="mobile-project-link" data-barba="HomeTransition">
                         <span className="slideUp">
