@@ -372,6 +372,13 @@ input {
 
 :root {
     --font-logo: var(--font-space);
+    --scroll-ring: #000;
+    --scroll-track: rgba(0, 0, 0, 0.1);
+}
+
+body.night-mode {
+    --scroll-ring: #fff;
+    --scroll-track: rgba(255, 255, 255, 0.1);
 }
 
 @font-face {

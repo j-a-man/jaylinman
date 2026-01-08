@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './cs-projects.module.css';
+import { PROJECTS } from './data';
 
 // Link Types
 type LinkType = 'github' | 'demo' | 'devpost' | 'youtube';
@@ -39,89 +41,6 @@ const getIcon = (type: string) => {
             );
     }
 }
-
-// Dummy Data with Links
-const PROJECTS = [
-    {
-        id: 1,
-        title: 'JMAN Portfolio Website',
-        category: 'Web Dev',
-        description: 'A modern, interactive portfolio built with Next.js, featuring scroll-driven animations and a custom design system.',
-        image: '/project1.jpg',
-        links: [
-            { label: 'GitHub', type: 'github', url: '#' },
-            { label: 'Try it out', type: 'demo', url: 'https://jaylinman.vercel.app' }
-        ]
-    },
-    {
-        id: 2,
-        title: 'Faceable',
-        category: 'Apps',
-        description: 'An accessibility-focused art web-app that lets users draw using their face (utilizes Mediapipe Face Landmarker)',
-        image: '/project2.jpg',
-        links: [
-            { label: 'Devpost', type: 'devpost', url: '#' },
-            { label: 'YouTube', type: 'youtube', url: '#' },
-            { label: 'GitHub', type: 'github', url: '#' },
-            { label: 'Try it out', type: 'demo', url: 'faceable.vercel.app' }
-        ]
-    },
-    {
-        id: 3,
-        title: 'Health Guard Pharmacy Website',
-        category: 'Web Dev',
-        description: 'A pharmacy website built with Next.js, featuring scroll-driven animations and a custom design system.',
-        image: '/project3.jpg',
-        links: [
-            { label: 'GitHub', type: 'github', url: '#' },
-            { label: 'Try it out', type: 'demo', url: 'https://healthguardpharmacy.vercel.app' }
-        ]
-    },
-    {
-        id: 4,
-        title: 'Spyderstack Website',
-        category: 'Web Dev',
-        description: 'A multi-page website built with Next.js, featuring custom animations and a calendar booking system for appointments.',
-        image: '/project4.jpg',
-        links: [
-            { label: 'GitHub', type: 'github', url: '#' },
-            { label: 'Try it out', type: 'demo', url: 'https://spyderstack.com' }
-        ]
-    },
-    {
-        id: 5,
-        title: 'Hourglass',
-        category: 'Apps',
-        description: 'A comprehensive payroll application allowing employers to track clock-in/out times and automatically process bi-weekly payroll reports with precision.',
-        image: '/project5.jpg',
-        links: [
-            { label: 'GitHub', type: 'github', url: '#' },
-            { label: 'Try it out', type: 'demo', url: 'https://hour-glass-app.vercel.app' }
-        ]
-    },
-    {
-        id: 6,
-        title: 'Stackhacks Email Phishing Detector',
-        category: 'Cyber',
-        description: 'A Chrome Extension designed for students that scans email content to calculate a phishing probability score, providing a detailed safety breakdown.',
-        image: '/project6.jpg',
-        links: [
-            { label: 'GitHub', type: 'github', url: '#' },
-            { label: 'Try it out', type: 'demo', url: '#' }
-        ]
-    },
-    {
-        id: 7,
-        title: 'Crossworks Carpentry Website',
-        category: 'Web Dev',
-        description: 'A premium carpentry business website featuring high-quality project galleries, service breakdowns, and an integrated client intake system.',
-        image: '/project6.jpg',
-        links: [
-            { label: 'GitHub', type: 'github', url: '#' },
-            { label: 'Try it out', type: 'demo', url: 'https://crossworkscarpentrymodern.vercel.app' }
-        ]
-    }
-];
 
 const FILTERS = ['All', 'Web Dev', 'Apps', 'Cyber'];
 
@@ -194,6 +113,11 @@ export default function CSProjectsPage() {
                 <div className={styles.grid} style={{ opacity: isAnimating ? 0 : 1, transition: 'opacity 0.3s ease' }}>
                     {visibleProjects.map((project) => (
                         <div key={project.id} className={styles.card}>
+                            {/* Main Card Click Overlay */}
+                            <Link href={`/cs-projects/${project.slug}`} className={styles.cardOverlayLink}>
+                                <span className="sr-only">View Project</span>
+                            </Link>
+
                             <div className={styles.cardImage}>
                                 {/* Custom Links Overlay */}
                                 <div className={styles.cardLinks}>
@@ -204,14 +128,26 @@ export default function CSProjectsPage() {
                                             className={styles.linkBtn}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            onClick={(e) => e.stopPropagation()} // Prevent card click
+                                            onClick={(e) => e.stopPropagation()} // Prevent card click propagation
                                             title={link.label} // Tooltip
                                         >
                                             {getIcon(link.type)}
                                         </a>
                                     ))}
                                 </div>
-                                <div style={{ width: '100%', height: '100%', background: 'linear-gradient(45deg, #f3f3f3, #e1e1e1)' }}></div>
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                                {project.status === 'In Progress' && (
+                                    <div className={styles.statusBadge}>
+                                        <div className={styles.statusDot}></div>
+                                        <span className={styles.statusText}>In Progress</span>
+                                    </div>
+                                )}
                             </div>
                             <div className={styles.cardContent}>
                                 <div>
