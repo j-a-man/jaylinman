@@ -29,7 +29,7 @@ export default function ResumePage() {
                             <br />
                             linkedin.com/in/jaylin-man | github.com/j-a-man
                         </p>
-                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.downloadLink}>
+                        <a href="/Jaylin_Man_Resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.downloadLink}>
                             Download PDF
                         </a>
                     </div>
