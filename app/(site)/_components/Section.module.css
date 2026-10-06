@@ -1,0 +1,40 @@
+/* scroll-padding on html already clears the header; this pulls the section padding back
+   so a nav jump lands the kicker --kicker-gap below the header */
+.section {
+    padding-top: var(--section-pad);
+    scroll-margin-top: calc(var(--kicker-gap) - 16px - var(--section-pad));
+}
+
+.last {
+    padding-bottom: 120px;
+}
+
+.kicker {
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.title {
+    margin-top: 6px;
+    font-size: var(--fs-h2);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: var(--fs-body);
+}
+
+.body {
+    margin-top: 32px;
+}
+
+@media (max-width: 719px) {
+    .last {
+        padding-bottom: 96px;
+    }
+}

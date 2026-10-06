@@ -1,0 +1,26 @@
+.main {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 64px;
+}
+
+.kicker {
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.title {
+    margin-top: 12px;
+    font-size: var(--fs-h2);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+}
+
+.back {
+    margin-top: 20px;
+    font-size: var(--fs-list);
+}

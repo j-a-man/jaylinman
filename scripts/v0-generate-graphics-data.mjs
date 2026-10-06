@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const sizeOf = require('image-size');
+import fs from 'fs';
+import path from 'path';
+import { imageSize } from 'image-size';
 
-const PUBLIC_DIR = path.join(__dirname, '../public');
-const BASE_PATH = '/graphic design portfolio';
+const PUBLIC_DIR = path.join(import.meta.dirname, '../public');
+const BASE_PATH = '/v0/graphic design portfolio';
 const ROOT_DIR = path.join(PUBLIC_DIR, BASE_PATH);
 
 // Map folder names to Organization details
@@ -15,13 +15,12 @@ const ORG_MAP = {
 };
 
 function getDimensions(filePath) {
-    try {
-        const dimensions = sizeOf(filePath);
-        return { width: dimensions.width, height: dimensions.height };
-    } catch (e) {
-        console.error('Error reading dimensions for:', filePath);
-        return { width: 800, height: 600 }; // Fallback
+    // image-size v2 takes a buffer; a silent fallback here once hid that and left every image at 800x600
+    const { width, height } = imageSize(fs.readFileSync(filePath));
+    if (!width || !height) {
+        throw new Error(`Could not read dimensions for ${filePath}`);
     }
+    return { width, height };
 }
 
 function scanDirectory() {

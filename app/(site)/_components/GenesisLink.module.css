@@ -1,0 +1,75 @@
+/* A 9px hollow ring at the end of the rail. Quiet (3:1 stroke), not invisible. */
+.genesis {
+    position: relative;
+    justify-self: center;
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1.5px solid var(--node);
+    background: var(--bg);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 44x44 hit area so a fingertip can land on it */
+.genesis::before {
+    content: '';
+    position: absolute;
+    inset: -17.5px;
+}
+
+.genesis:hover,
+.genesis:focus-visible,
+.genesis[data-phase='typing'],
+.genesis[data-phase='done'],
+:global(html[data-found-v0]) .genesis {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.genesis:focus-visible {
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
+/* Starts at the content column so it lines up with the role text above.
+   Measured from the ring's padding box, which begins 3px left of its center. */
+.label {
+    position: absolute;
+    left: calc(var(--gutter) / 2 + var(--gap) + 3px);
+    top: calc(50% - 9px);
+    display: grid;
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .genesis {
+        transition: background-color 150ms var(--ease), border-color 150ms var(--ease);
+    }
+
+    .label {
+        transition: opacity 150ms var(--ease);
+    }
+}
+
+.genesis:hover .label,
+.genesis:focus-visible .label,
+.genesis[data-phase='typing'] .label,
+.genesis[data-phase='done'] .label {
+    opacity: 1;
+}
+
+.command {
+    color: var(--text);
+}
+
+.result {
+    color: var(--muted);
+}

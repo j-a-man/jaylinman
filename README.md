@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jaylinman.com
 
-## Getting Started
+Jaylin Man's portfolio: a single-page site, plus the previous version of the site kept as an easter egg at `/v0`.
 
-First, run the development server:
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
+`npm run build` and `npm run lint` must both pass before a deploy.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How it is organized
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app has two root layouts, so the two sites never share CSS, fonts or scripts.
+Moving between them is a full page load.
 
-## Learn More
+- `app/(site)/` is the current site.
+  All copy lives in `app/(site)/_content.ts`; components in `_components/` only render it.
+  Styling is `tokens.css` (Rosé Pine Dawn and Moon tokens, reset, base type) plus one CSS Module per component.
+- `app/(legacy)/` is the old site, served under `/v0` with `noindex`.
+  Its assets live in `public/v0/`.
+  The way in is the hollow ring at the end of the Experience timeline.
+- `app/global-not-found.tsx` is the shared 404 for both sites (it needs `experimental.globalNotFound` in `next.config.ts`).
+- `app/api/contact/route.ts` sends the `/v0/contact` form to email.
+  The current site has no form; it links to email directly.
 
-To learn more about Next.js, take a look at the following resources:
+Old top-level URLs (`/about`, `/resume`, `/cs-projects`, `/contact`, `/graphics`) redirect to sections of the current site; see `next.config.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Used by |
+| --- | --- |
+| `EMAIL_USER`, `EMAIL_PASS` | The `/v0/contact` form (a Gmail address and an app password). |
+| `VERCEL_GIT_COMMIT_SHA` | Set by Vercel; shown as the build stamp in the footer (falls back to `dev`). |
 
-## Deploy on Vercel
+Analytics is Vercel Web Analytics.
+Turn it on under Analytics in the Vercel project; no key is needed.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Updating content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Experience, projects, leadership and the hero live in `app/(site)/_content.ts`.
+  Metric chips are data: `{ diff: ['3 hours', '10 minutes'] }` or `{ stat: '400+ RSVPs' }`.
+- Set `repoReady: false` on a project to show it without a GitHub link.
+- The resume PDF is `public/Jaylin_Man_Resume.pdf`.
+- After adding or replacing images in the old graphics portfolio, run `npm run v0:graphics:sizes` to refresh their dimensions.

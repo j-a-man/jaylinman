@@ -1,0 +1,47 @@
+.hero {
+    padding-top: 120px;
+}
+
+.kicker {
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+}
+
+.name {
+    margin-top: 12px;
+    font-size: var(--fs-h1);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.lead {
+    margin-top: 20px;
+    max-width: 34em;
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+}
+
+.serif {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.08em;
+    color: var(--text-strong);
+}
+
+.links {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: var(--fs-list);
+}
+
+@media (max-width: 719px) {
+    .hero {
+        padding-top: 64px;
+    }
+}

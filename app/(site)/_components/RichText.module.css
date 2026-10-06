@@ -1,0 +1,43 @@
+.chip {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: var(--fs-chip);
+    font-weight: 500;
+    line-height: 1.4;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ins {
+    color: var(--accent);
+    background: var(--ins-bg);
+}
+
+.del {
+    color: var(--del);
+    background: var(--del-bg);
+    text-decoration-line: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--del);
+}
+
+/* The two sides of a diff stay whole; a narrow line may break between them */
+.diff {
+    display: inline;
+}
+
+.arrow {
+    display: inline-block;
+    margin-inline: 4px;
+    color: var(--muted);
+    font-size: var(--fs-chip);
+}
+
+.mark {
+    background: var(--mark);
+    color: inherit;
+    padding: 0 3px;
+    border-radius: 2px;
+}

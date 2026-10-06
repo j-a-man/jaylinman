@@ -1,0 +1,10 @@
+.tags {
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.tag {
+    white-space: nowrap;
+}
