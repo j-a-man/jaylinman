@@ -29,7 +29,7 @@ function PipelineStep({ step, first }: { step: string; first: boolean }) {
 
 export default function Projects() {
     return (
-        <Section id="projects" kicker="repos" title="Projects" subtitle="Tools I built because I needed them. The public ones link to their code.">
+        <Section id="projects" kicker="repos" title="Projects" subtitle="Cool tools I built. The public ones link to their code.">
             <ul className={styles.list}>
                 {projects.map(project => (
                     <li key={project.name} className={styles.project}>
