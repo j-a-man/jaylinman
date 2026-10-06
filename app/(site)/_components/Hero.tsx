@@ -14,7 +14,7 @@ export default function Hero() {
     return (
         <section id="about" className={`container ${styles.hero}`} aria-labelledby="about-title">
             <p className={`${styles.kicker} mono`}>
-                {version} · {releasedMonth} · v0 deprecated, not deleted
+                {version} · {releasedMonth}
             </p>
             <h1 id="about-title" className={styles.name}>
                 {person.name}
