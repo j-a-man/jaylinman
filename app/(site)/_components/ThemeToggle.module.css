@@ -1,0 +1,77 @@
+.toggle {
+    min-width: 32px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1;
+    border-radius: 6px;
+}
+
+.toggle:hover {
+    color: var(--text);
+}
+
+.toDark,
+.toLight {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.icon {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .icon {
+        transition: transform 200ms var(--ease);
+    }
+
+    .toggle:active .icon {
+        transform: rotate(-30deg);
+    }
+}
+
+/* Light shows "moon" (where the button goes); dark shows "dawn" */
+.toLight {
+    display: none;
+}
+
+:global(:root[data-theme='dark']) .toDark {
+    display: none;
+}
+
+:global(:root[data-theme='dark']) .toLight {
+    display: inline-flex;
+}
+
+@media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme])) .toDark {
+        display: none;
+    }
+
+    :global(:root:not([data-theme])) .toLight {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 439px) {
+    .word {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,83 @@
+'use client';
+
+import React, { useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import EmailSidebar from '../_components/EmailSidebar';
+
+export default function HomePage() {
+  const router = useRouter();
+  useEffect(() => {
+    document.body.classList.add('home-page');
+    // Also remove work-page if it stuck around (though cleanup should handle it)
+    document.body.classList.remove('work-page');
+    return () => {
+      document.body.classList.remove('home-page');
+    };
+  }, []);
+
+  return (
+    <div id="barba-wrapper" aria-live="polite">
+      <EmailSidebar />
+      <div className="barba-container" data-namespace="home-page" style={{ visibility: 'visible' }}>
+        <div className="barba-transition-container">
+          <div className="stagePerspective parallaxPerspective perspective-origin-tt-bb">
+            <div className="stageContainer" style={{ opacity: 1, minHeight: '100vh' }}>
+              <main className="stage" style={{ transform: 'translate3d(0px, 0px, 0px)' }}>
+                <ul className="projects">
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/v0/about')}>
+                    <div className="projectContainer">
+                      <Link href="/v0/about" className="mobile-project-link" data-barba="HomeTransition">
+                        <span className="slideUp">
+                          <span>ABOUT</span>
+                        </span>
+                      </Link>
+                    </div>
+                  </li>
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/v0/cs-projects')}>
+                    <div className="projectContainer">
+                      <Link href="/v0/cs-projects" className="mobile-project-link" data-barba="HomeTransition">
+                        <span className="slideUp">
+                          <span>CS <br /> PROJECTS</span>
+                        </span>
+                      </Link>
+                    </div>
+                  </li>
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/v0/resume')}>
+                    <div className="projectContainer">
+                      <Link href="/v0/resume" className="mobile-project-link" data-barba="HomeTransition">
+                        <span className="slideUp">
+                          <span>RESUME/ <br /> CV</span>
+                        </span>
+                      </Link>
+                    </div>
+                  </li>
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/v0/graphics')}>
+                    <div className="projectContainer">
+                      <Link href="/v0/graphics" className="mobile-project-link" data-barba="HomeTransition">
+                        <span className="slideUp">
+                          <span>GRAPHICS <br /> PORTFOLIO</span>
+                        </span>
+                      </Link>
+                    </div>
+                  </li>
+
+                  <li className="projectsLi" data-barba="HomeTransition" onClick={() => router.push('/v0/contact')}>
+                    <div className="projectContainer">
+                      <Link href="/v0/contact" className="mobile-project-link" data-barba="HomeTransition">
+                        <span className="slideUp">
+                          <span>CONTACT</span>
+                        </span>
+                      </Link>
+                    </div>
+                  </li>
+
+                </ul>
+              </main>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

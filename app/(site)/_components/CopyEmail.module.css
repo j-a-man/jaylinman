@@ -1,0 +1,36 @@
+.row {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.email {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.copy {
+    min-height: 26px;
+    padding: 4px 8px;
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .copy {
+        transition: color 120ms var(--ease), border-color 120ms var(--ease);
+    }
+}
+
+.copy:hover {
+    color: var(--text);
+    border-color: var(--node);
+}

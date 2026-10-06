@@ -1,0 +1,112 @@
+.list {
+    display: grid;
+    row-gap: 48px;
+}
+
+/* Same gutter as the changelog, so both lists share one left edge */
+.project {
+    display: grid;
+    grid-template-columns: var(--gutter) 1fr;
+    column-gap: var(--gap);
+    align-items: start;
+}
+
+.content {
+    min-width: 0;
+}
+
+.nameRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 8px;
+}
+
+.heading {
+    font-size: var(--fs-h3);
+    line-height: 1.35;
+}
+
+.name {
+    color: var(--text-strong);
+    font-weight: 600;
+}
+
+a.name {
+    text-decoration-color: var(--accent);
+    text-underline-offset: 4px;
+}
+
+.nameArrow {
+    margin-left: 4px;
+    color: var(--muted);
+    font-size: 0.75em;
+}
+
+.status {
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    letter-spacing: 0.01em;
+}
+
+.pitch {
+    margin-top: 6px;
+    font-size: var(--fs-list);
+    line-height: 1.6;
+}
+
+.pipeline {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: var(--fs-chip);
+    line-height: 1.55;
+}
+
+/* Steps only break between each other; below 360px a long step may wrap after its first word */
+.step,
+.lead {
+    white-space: nowrap;
+}
+
+@media (max-width: 359px) {
+    .step {
+        white-space: normal;
+    }
+}
+
+.lead svg {
+    margin-inline: 2px 6px;
+}
+
+.decision {
+    margin-top: 8px;
+    max-width: 68ch;
+    color: var(--muted);
+    font-size: var(--fs-small);
+    line-height: 1.55;
+}
+
+/* Inline flow, so a long note continues beside the chip instead of dropping below it */
+.metric {
+    margin-top: 10px;
+    line-height: 1.75;
+}
+
+.note {
+    margin-left: 8px;
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    letter-spacing: 0.01em;
+}
+
+.tags {
+    margin-top: 8px;
+}
+
+.private {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}

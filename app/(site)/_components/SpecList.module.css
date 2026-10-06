@@ -1,0 +1,57 @@
+.spec {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    column-gap: 16px;
+    row-gap: 8px;
+    align-items: baseline;
+}
+
+.boxed {
+    margin-top: 32px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+/* Each row joins the parent grid so keys and values share columns */
+.row {
+    display: contents;
+}
+
+.key {
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.value {
+    min-width: 0;
+}
+
+.list .value {
+    font-size: var(--fs-list);
+    line-height: 1.55;
+}
+
+.small .value {
+    font-size: var(--fs-small);
+    line-height: 1.55;
+}
+
+.body .value {
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+@media (max-width: 719px) {
+    .spec {
+        grid-template-columns: 72px 1fr;
+        column-gap: 12px;
+    }
+
+    .boxed {
+        padding: 14px 16px;
+    }
+}

@@ -1,31 +1,33 @@
 {
   "name": "next-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "v0:graphics:sizes": "node scripts/v0-sync-graphics-dimensions.mjs"
   },
   "dependencies": {
-    "@types/nodemailer": "^7.0.4",
+    "@vercel/analytics": "^2.0.1",
     "basicscroll": "^3.0.4",
     "framer-motion": "^12.24.7",
-    "image-size": "^2.0.2",
-    "next": "16.1.1",
-    "nodemailer": "^7.0.12",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "next": "16.3.8",
+    "nodemailer": "^10.0.15",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.1.1",
+    "eslint-config-next": "16.3.8",
+    "image-size": "^2.0.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

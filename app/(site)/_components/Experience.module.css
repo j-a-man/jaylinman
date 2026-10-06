@@ -1,0 +1,117 @@
+/* The changelog rail runs from the newest role's node down to the initial commit */
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--gutter) / 2 - 0.5px);
+    top: 9px;
+    bottom: 4.5px;
+    width: 1px;
+    background: var(--rail);
+}
+
+.list {
+    display: grid;
+    row-gap: 40px;
+}
+
+.entry {
+    display: grid;
+    grid-template-columns: var(--gutter) 1fr;
+    column-gap: var(--gap);
+}
+
+/* 7px node centered on the 18px meta line */
+.node {
+    position: relative;
+    justify-self: center;
+    width: 7px;
+    height: 7px;
+    margin-top: 5.5px;
+    border-radius: 50%;
+    background: var(--node);
+}
+
+.content {
+    min-width: 0;
+}
+
+.meta {
+    color: var(--muted);
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.role {
+    margin-top: 4px;
+    font-size: var(--fs-h3);
+    line-height: 1.35;
+    font-weight: 400;
+    text-wrap: pretty;
+}
+
+.title {
+    font-weight: 600;
+    color: var(--text-strong);
+}
+
+.at {
+    color: var(--muted);
+}
+
+.org {
+    color: var(--text);
+}
+
+a.org {
+    color: var(--accent);
+}
+
+.summary {
+    margin-top: 8px;
+    font-size: var(--fs-list);
+    line-height: 1.6;
+}
+
+.bullets {
+    margin-top: 8px;
+    display: grid;
+    row-gap: 4px;
+    font-size: var(--fs-list);
+    line-height: 1.6;
+}
+
+.bullets li {
+    position: relative;
+    padding-left: 16px;
+}
+
+.plus {
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.tags {
+    margin-top: 10px;
+}
+
+/* Ring center sits 48px below the last entry */
+.genesisRow {
+    display: grid;
+    grid-template-columns: var(--gutter) 1fr;
+    column-gap: var(--gap);
+    margin-top: 43.5px;
+    height: 9px;
+}
+
+.skillsTitle {
+    margin-top: 56px;
+    margin-bottom: 12px;
+    font-size: var(--fs-h3);
+    line-height: 1.35;
+}

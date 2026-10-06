@@ -1,0 +1,91 @@
+/* Every value is explicit so the old site's global styles cannot reach it.
+   Phones: a compact "v1" pill bottom-left, the one corner no v0 page keeps controls in.
+   Wider screens: the full pill sits in the empty left side of v0's floating header bar. */
+.pill {
+    position: fixed;
+    left: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    z-index: 9998;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    padding: 0 12px;
+    margin: 0;
+    border: 1px solid #393552;
+    border-radius: 999px;
+    background: #232136;
+    color: #e0def4;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(35, 33, 54, 0.18);
+}
+
+.pill:hover {
+    color: #9ccfd8;
+    border-color: #44415a;
+}
+
+.pill:focus-visible {
+    outline: 2px solid #c4a7e7;
+    outline-offset: 3px;
+}
+
+.detached {
+    display: none;
+    color: #a6a2c2;
+}
+
+.dot {
+    display: none;
+    color: #75718e;
+}
+
+.back,
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.arrow {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (min-width: 768px) {
+    /* v0's header bar spans 15-105px from the top; center the pill in it, left of the centered logo */
+    .pill {
+        top: 44px;
+        left: 50px;
+        bottom: auto;
+        box-shadow: none;
+    }
+
+    .detached,
+    .dot {
+        display: inline;
+    }
+
+    .back {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+    }
+}
