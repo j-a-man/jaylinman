@@ -194,7 +194,7 @@ export const projects: Project[] = [
         name: 'afterword',
         status: 'active',
         repoUrl: 'https://github.com/j-a-man/afterword',
-        repoReady: true,
+        repoReady: false,
         pitch: "Live meeting transcripts that know who's talking.",
         pipeline: ['system audio + mic', 'Gemini, live', 'voiceprints', 'named transcript', 'action items by owner'],
         decision:
