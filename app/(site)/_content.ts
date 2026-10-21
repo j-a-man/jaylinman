@@ -61,7 +61,7 @@ export const hero = {
     leadBefore: 'I talk to the people doing the work, then I ',
     leadSerif: 'build the thing',
     leadAfter:
-        ' that gives them their time back. Lately, a lot of that is AI tooling: for developers, and for the agents they work with.',
+        ' that saves them time. Lately, a lot of that is AI tooling: for developers, and for the agents they work with.',
     spec: [
         {
             key: 'now',
@@ -72,7 +72,7 @@ export const hero = {
         { key: 'studying', value: ['Computer Science at Binghamton University, class of 2028'] },
         {
             key: 'open to',
-            value: ['Summer 2027 internships in product management, technical PM, product engineering, solutions engineering and AI engineering'],
+            value: ['Summer 2027 internships in product management, technical PM, product engineering, tech consulting, solutions engineering and AI engineering'],
         },
     ] satisfies { key: string; value: Rich }[],
 };
@@ -268,8 +268,8 @@ export const education = {
 export const offTheClock: string[] = [
     'NYC-born, Long Island-raised, upstate for school.',
     'Will challenge you to pickleball. Also spikeball.',
-    'Lifts, boulders and swims on a schedule, not a mood.',
-    'Plays piano and watches a lot of film.',
+    'Lifts, boulders and swims regularly.',
+    'Plays piano and likes to make short films.',
     'Designs graphics for student orgs and makes content on the side.',
 ];
 
