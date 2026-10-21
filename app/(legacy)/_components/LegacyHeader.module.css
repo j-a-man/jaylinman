@@ -1,0 +1,50 @@
+.bar {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    z-index: 900;
+    width: min(96vw, 1600px);
+    height: 90px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    background: var(--v0-bar);
+    border: 1px solid var(--v0-bar-line);
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.wordmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--v0-ink);
+    font-family: var(--font-archivo), sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    font-stretch: 125%;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hollow on hover, the same trick the home links use */
+.wordmark:hover {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--v0-ink);
+}
+
+@media (max-width: 767px) {
+    .bar {
+        padding: 0 24px;
+    }
+
+    .wordmark {
+        font-size: 16px;
+    }
+}

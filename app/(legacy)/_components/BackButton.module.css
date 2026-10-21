@@ -1,0 +1,58 @@
+/* Vertically centered with the 40px theme switch (top 40px), 8px to its left */
+.button {
+    position: fixed;
+    top: 35px;
+    right: 108px;
+    z-index: 950;
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    color: var(--v0-ink);
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s var(--v0-ease);
+}
+
+.button svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s var(--v0-ease);
+}
+
+.button:hover {
+    background: var(--v0-ink);
+    color: var(--v0-bg);
+}
+
+.button:hover svg {
+    transform: translateX(-2px);
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--v0-ink);
+    outline-offset: 3px;
+}
+
+/* Phones: a bare arrow beside the menu button, clear of the centered wordmark */
+@media (max-width: 767px) {
+    .button {
+        top: 40px;
+        right: auto;
+        /* bar edge (2vw) + bar padding (24px) - menu nudge (6px) + menu (44px) + 4px gap */
+        left: calc(2vw + 66px);
+        width: 40px;
+        height: 40px;
+        border-color: transparent;
+    }
+
+    .button:hover {
+        background: none;
+        color: var(--v0-ink);
+    }
+}

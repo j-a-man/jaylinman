@@ -1,0 +1,84 @@
+.container {
+    padding-top: 120px;
+    /* Increased to ensure clearance of fixed header logo */
+    margin-left: max(350px, 40vw);
+    /* Ensure sidebar clearance (width 280px + margin) */
+    width: min(50vw, 800px);
+    max-width: 100%;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1.0s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lead {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    color: #000;
+    font-family: var(--font-syne), sans-serif;
+}
+
+:global(body.night-mode) .lead {
+    color: #fff;
+}
+
+.bodyText {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #333;
+    opacity: 0.9;
+    font-family: var(--font-manrope), sans-serif;
+}
+
+:global(body.night-mode) .bodyText {
+    color: #e0e0e0;
+}
+
+.section {
+    margin-top: 3rem;
+}
+
+.sectionTitle {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    font-weight: 700;
+    font-family: var(--font-space), monospace;
+}
+
+:global(body.night-mode) .sectionTitle {
+    color: #fff;
+}
+
+/* Ensure text doesn't overlap weirdly on small screens */
+@media screen and (max-width: 1024px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        padding-top: 10px;
+        /* Adjust for mobile where sidebar might move/hide */
+    }
+}

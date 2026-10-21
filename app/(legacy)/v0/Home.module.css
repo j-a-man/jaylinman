@@ -1,0 +1,124 @@
+/* The home page is the menu: huge links turned away from the viewer in 3D.
+   Hovering one makes it hollow. The profile card sits on the right (ProfileSection). */
+.home {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+}
+
+.stage {
+    padding: 132px 0 120px 11vw;
+}
+
+/* Perspective lives on the list so each item turns in the same 3D space */
+.list {
+    perspective: 1100px;
+    perspective-origin: 0 45%;
+    counter-reset: v0-section;
+    display: grid;
+    justify-items: start;
+    row-gap: 6px;
+    width: min(56vw, 760px);
+}
+
+.item {
+    counter-increment: v0-section;
+    transform: rotateY(26deg);
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 1.2s var(--v0-ease);
+}
+
+.item:hover {
+    transform: rotateY(18deg) translateX(10px);
+}
+
+.link {
+    position: relative;
+    display: block;
+    color: var(--v0-ink);
+    font-family: var(--font-archivo), sans-serif;
+    font-size: clamp(3.4rem, 7.4vw, 7.6rem);
+    font-weight: 900;
+    font-stretch: 112%;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+    -webkit-text-stroke: 0 transparent;
+    paint-order: stroke fill;
+    transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
+}
+
+/* Two-digit index set beside the first line */
+.link::before {
+    content: counter(v0-section, decimal-leading-zero);
+    position: absolute;
+    top: 1.35em;
+    left: -1.35em;
+    font-family: var(--font-syne), sans-serif;
+    font-size: 0.22em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--v0-ink);
+    -webkit-text-stroke: 0;
+}
+
+.link:hover,
+.link:focus-visible {
+    color: var(--v0-bg);
+    -webkit-text-stroke: 3px var(--v0-ink);
+    outline: none;
+}
+
+.link:focus-visible::after {
+    content: '';
+    position: absolute;
+    inset: -6px -10px;
+    border: 2px solid var(--v0-ink);
+    border-radius: 10px;
+}
+
+/* Phones: the profile card comes first, the links follow it flat */
+@media (max-width: 767px) {
+    .home {
+        min-height: 0;
+    }
+
+    .stage {
+        padding: 48px 20px 96px 52px;
+    }
+
+    .list {
+        perspective: none;
+        width: 100%;
+        row-gap: 10px;
+    }
+
+    .item,
+    .item:hover {
+        transform: none;
+    }
+
+    .link {
+        font-size: clamp(2.1rem, 11.5vw, 3.4rem);
+        font-stretch: 100%;
+        line-height: 1;
+    }
+
+    .link::before {
+        font-size: 0.26em;
+        left: -1.7em;
+    }
+
+    .link:hover,
+    .link:focus-visible {
+        -webkit-text-stroke-width: 2px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .item {
+        transition: none;
+    }
+}
